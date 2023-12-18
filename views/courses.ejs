@@ -1,0 +1,19 @@
+<%- include ('layouts/header') %>
+<h1 class="table">List of courses</h1>
+
+<table border="1px">
+  <thead>
+    <th>Title</th>
+    <th>courseCode</th>
+  </thead>
+  <tbody>
+    <% courses.forEach(course => { %>
+    <tr>
+      <td><%= course.title %></td>
+      <td><%= course.courseCode %></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include ('layouts/footer') %>

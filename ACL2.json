@@ -1,0 +1,39 @@
+[
+  {
+    "role": "STUDENT",
+    "permissions": [
+      { "resource": "/home" },
+      { "resource": "/profile" },
+      { "resource": "/courses" }
+    ]
+  },
+  {
+    "role": "INSTRUCTOR",
+    "permissions": [
+      { "resource": "/home" },
+      { "resource": "/profile" },
+      { "resource": "/courses" },
+      { "resource": "/Instructor/studentList" },
+      { "resource": "/Instructor/update-grade" }
+    ]
+  },
+  {
+    "role": "REGISTRAR",
+    "permissions": [
+      { "resource": "/courses/add_Courses" },
+      { "resource": "/registrar" },
+      { "resource": "/profile" },
+      { "resource": "/courses/addCourses" },
+      { "resource": "/courses" },
+      { "resource": "/courses/course/:id" },
+      { "resource": "/courses/deleteCourse" },
+      { "resource": "/courses/enroll-courses" },
+      { "resource": "/courses/revokeEnrollment" },
+      { "resource": "/courses/course/:id" },
+      { "resource": "/registrar/user/:id" },
+      { "resource": "/registrar/update-role" },
+      { "resource": "/registrar/:id" },
+      { "resource": "/home" }
+    ]
+  }
+]

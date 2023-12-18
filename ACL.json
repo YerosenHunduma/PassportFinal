@@ -1,0 +1,24 @@
+[
+  {
+    "role": "STUDENT",
+    "permissions": [{ "resource": "Course", "action": "READ" }]
+  },
+  {
+    "role": "INSTRUCTOR",
+    "permissions": [
+      { "resource": "Course", "action": "READ" },
+      { "resource": "Course", "action": "UPDATE" }
+    ]
+  },
+  {
+    "role": "REGISTRAR",
+    "permissions": [
+      { "resource": "Course", "action": "CREATE" },
+      { "resource": "Course", "action": "READ" },
+      { "resource": "Course", "action": "UPDATE" },
+      { "resource": "Course", "action": "DELETE" },
+      { "resource": "User", "action": "READ" },
+      { "resource": "User", "action": "UPDATE" }
+    ]
+  }
+]

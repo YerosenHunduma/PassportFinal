@@ -1,0 +1,33 @@
+<%- include ('layouts/header') %>
+<h1 class="table">Manage Student</h1>
+<% studentsByCourse.forEach((course) => { %>
+<h3><%= course.courseTitle %></h3>
+
+<table border="1">
+  <thead>
+    <th>Student</th>
+    <th>Grade</th>
+    <th>Submit Grade</th>
+  </thead>
+  <tbody>
+    <% course.students.forEach((student) => { %>
+    <tr>
+      <td><%= student.user.username %></td>
+      <td>
+        <% student.courses.forEach((enrollment) => { %> <% if
+        (enrollment.course.equals(course.courseId)) { %> <%= enrollment.grade %>
+        <% } %> <% }); %>
+      </td>
+      <td>
+        <form action="/api/instructor/Instructor/update-grade" method="post">
+          <input type="hidden" name="userId" value="<%= student.user._id %>" />
+          <input type="hidden" name="courseId" value="<%= course.courseId %>" />
+          <input type="text" name="grade" placeholder="Enter grade" />
+          <button type="submit">Submit</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+<% }); %> <%- include ('layouts/footer') %>

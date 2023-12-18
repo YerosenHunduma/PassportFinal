@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>passport</title>
+  </head>
+  <body>
+    <nav>
+      <h2></h2>
+      <ul>
+        <% if (locals.users || locals.user|| locals.courses) { %>
+        <li><a href="/api/users/home">Home</a></li>
+        <li><a href="/api/users/profile">Profile</a></li>
+        <li><a href="/api/users/courses">Courses</a></li>
+        <% if (locals.role=== 'REGISTRAR') { %>
+        <li><a href="/api/registrar/courses/add_Courses">Manage Courses</a></li>
+        <li><a href="/api/registrar/registrar">Manage Users</a></li>
+        <%}%> <% if (locals.role=== 'INSTRUCTOR') { %>
+        <li><a href="/api/instructor/Instructor/studentList">studentList</a></li>
+        <%}%>
+        <form action="/api/auths/logout?_method=DELETE" method="POST">
+          <button type="submit">logout</button>
+        </form>
+        <% } else {%>
+        <li><a href="/api/auths/register">Register</a></li>
+        <li><a href="/api/auths/login">Login</a></li>
+        <%}%>
+      </ul>
+    </nav>
+    <main></main>
+  </body>
+</html>

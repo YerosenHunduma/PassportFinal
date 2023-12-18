@@ -1,0 +1,40 @@
+<%- include ('layouts/header') %>
+<h1 class="table">Manage Users</h1>
+
+<table border="1px">
+  <thead>
+    <th>username</th>
+    <th>email</th>
+    <th>id</th>
+    <th>role</th>
+  </thead>
+  <tbody>
+    <% users.forEach(user => { %>
+    <tr>
+      <td>
+        <a href="/api/registrar/registrar/user/<%= user.id %>"
+          ><%= user.username %></a
+        >
+      </td>
+      <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      <td>
+      <form
+          action="/api/registrar/registrar/update-role"
+          method="post"
+          class="manage-user-form"
+        >
+          <input type="hidden" name="id" value="<%= user.id %>" />
+          <select name="role" id="role">
+            <option value="INSTRUCTOR" <%= user.role === 'INSTRUCTOR' ? 'selected' : '' %>>instructor</option>
+            <option value="STUDENT" <%= user.role === 'STUDENT' ? 'selected' : '' %>>student</option>
+          </select>
+          <input type="submit" value="update">
+        </form>
+</td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include ('layouts/footer') %>

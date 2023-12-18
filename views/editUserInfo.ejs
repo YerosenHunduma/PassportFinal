@@ -1,0 +1,16 @@
+<%- include('layouts/header') %>
+<h2>Update User Info</h2>
+<form
+  action="/api/registrar/registrar/<%= user._id %>?_method=put"
+  method="post"
+>
+  <label for="title">Username:</label>
+  <input type="text" id="username" name="username" />
+  <br />
+  <label for="courseCode">Email:</label>
+  <input type="text" id="email" name="email" />
+  <br />
+
+  <button type="submit">Update User Info</button>
+</form>
+<%- include ('layouts/footer') %>
